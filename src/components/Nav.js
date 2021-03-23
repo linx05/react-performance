@@ -65,20 +65,6 @@ export const Nav = () => (
           </li>
         </ul>
       </li>
-      <li>
-        <a href="#">React API ￬</a>
-        <ul className="hidden">
-          <li>
-            <NavLink to="react-api/memo">memo</NavLink>
-          </li>
-          <li>
-            <NavLink to="react-api/use-memo">useMemo</NavLink>
-          </li>
-          <li>
-            <NavLink to="structure/use-callback">useCallback</NavLink>
-          </li>
-        </ul>
-      </li>
     </ul>
   </nav>
 );
