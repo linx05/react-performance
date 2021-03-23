@@ -1,8 +1,9 @@
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import { HexColorPicker } from "react-colorful";
 import styled from "styled-components";
 import Picker from "emoji-picker-react";
 import { renderItems } from "../../common/ComplexComponent";
+import { Header } from "../../../components/Header";
 
 const Container = styled.div`
   display: flex;
@@ -28,6 +29,7 @@ export const App = () => {
 
   return (
     <Container>
+      <Header>useMemo</Header>
       <PickerContainer>
         <Picker onEmojiClick={onEmojiClick} disableAutoFocus={true} native />
       </PickerContainer>

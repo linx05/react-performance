@@ -1,5 +1,6 @@
 import { useState, Profiler } from "react";
 import { ComplexComponent } from "../common/ComplexComponent";
+import { Header } from "../../components/Header";
 
 function onRenderCallback(
   id, // the "id" prop of the Profiler tree that has just committed
@@ -17,6 +18,7 @@ export const ComponentProfile = () => {
   let [color, setColor] = useState("red");
   return (
     <div>
+      <Header>React Profiler</Header>
       <Profiler id="BaseProfiler" onRender={onRenderCallback}>
         <Profiler id="InputProfiler" onRender={onRenderCallback}>
           <input value={color} onChange={(e) => setColor(e.target.value)} />

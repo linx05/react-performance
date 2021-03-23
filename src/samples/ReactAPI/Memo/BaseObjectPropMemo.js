@@ -1,6 +1,7 @@
 import { useState, memo } from "react";
 import { ComplexComponent } from "../../common/ComplexComponent";
 import styled from "styled-components";
+import { Header } from "../../../components/Header";
 
 const MemoizedComplexComponent = memo(ComplexComponent);
 
@@ -15,6 +16,7 @@ export const App = () => {
   return (
     <div>
       <div>
+        <Header>Memo with complex props</Header>
         <label htmlFor="color">Color</label>
         <Input
           id="color"
