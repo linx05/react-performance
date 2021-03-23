@@ -1,13 +1,9 @@
 # Optimizing React Performance
 
-## Running the presentation
-
-Inside the `presentation` directory run `yarn start`.
-
-The presentation will open up in `localhost:3001`.
+Presentation is available [here](https://slides.com/linx05/react-performance-optimizations).
 
 ## Running the examples
 
-Inside the `examples` directory run `yarn start`.
+Run `yarn && yarn start` in your terminal.
 
 The project will open up in `localhost:3000`.
