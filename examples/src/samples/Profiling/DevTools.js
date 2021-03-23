@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { ComplexComponent } from "../common/ComplexComponent";
 
-export const App = () => {
+export const DevTools = () => {
   let [color, setColor] = useState("red");
   return (
-    <div style={{ color }}>
+    <div>
       <input value={color} onChange={(e) => setColor(e.target.value)} />
-      <p>Hello, world!</p>
+      <p style={{ color }}>Hello Hims and Hers!</p>
       <ComplexComponent />
     </div>
   );

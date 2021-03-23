@@ -10,15 +10,15 @@ const isEqual = (prevProps, nextProps) => {
 
 const MemoizedComplexComponent = memo(ComplexComponent, isEqual);
 
-export const Memo = () => {
+export const App = () => {
   let [color, setColor] = useState("red");
   return (
     <div>
       <input value={color} onChange={(e) => setColor(e.target.value)} />
-      <p style={{ color }}>Hello, world!</p>
+      <p style={{ color }}>Hello Hims and Hers!</p>
       <MemoizedComplexComponent color={color} />
     </div>
   );
 };
 
-export default Memo;
+export default App;

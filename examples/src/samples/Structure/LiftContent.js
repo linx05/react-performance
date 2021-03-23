@@ -1,21 +1,21 @@
 import { useState } from "react";
 import { ComplexComponent } from "../common/ComplexComponent";
 
-const ColorPicker = ({ children }) => {
+const App = ({ children }) => {
   let [color, setColor] = useState("red");
   return (
-    <div style={{ color }}>
+    <div>
       <input value={color} onChange={(e) => setColor(e.target.value)} />
+      <p style={{ color }}>Hello Hims and Hers!</p>
       {children}
     </div>
   );
 };
 
-export const App = () => {
-  return (
-    <ColorPicker>
-      <p>Hello, world!</p>
-      <ComplexComponent />
-    </ColorPicker>
-  );
-};
+const AppContainer = () => (
+  <App>
+    <ComplexComponent />
+  </App>
+);
+
+export default AppContainer;

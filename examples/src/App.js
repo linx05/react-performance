@@ -3,16 +3,22 @@ import { Router } from "@reach/router";
 import "./App.css";
 import { Nav } from "./components/Nav";
 import { Counter } from "./samples/Rendering";
+import { BadStructure, MoveStateDown, LiftContent } from "./samples/Structure";
+import { DevTools } from "./samples/Profiling/DevTools";
+import { ComponentProfile } from "./samples/Profiling/Profiler";
 import {
-  BadStructure,
-  BadColorDiv,
-  MoveStateDown,
-  LiftContent,
-} from "./samples/Structure";
-import { RenderMarkdown } from "./samples/ReactAPI/useMemo/useMemo";
-import Memo from "./samples/ReactAPI/Memo/Memo.final";
+  MemoWithIsEqual,
+  MemoBase,
+  ObjectPropMemo,
+  Memo,
+} from "./samples/ReactAPI/Memo";
+import {
+  UseMemo,
+  UseMemoBase,
+  UseMemoObjects,
+} from "./samples/ReactAPI/useMemo";
 
-let Home = () => <div>Home</div>;
+let Home = () => <h1>React Performance Optimizations</h1>;
 const SubPath = ({ children }) => <div>{children}</div>;
 
 function App() {
@@ -20,19 +26,28 @@ function App() {
     <div className="App">
       <Nav />
       <div className="Content">
-        <h1>React Performance Optimizations</h1>
         <Router>
           <Home path="/" />
           <Counter path="rendering" />
+          <SubPath path="profiling">
+            <DevTools path="dev-tools" />
+            <ComponentProfile path="profiler" />
+          </SubPath>
           <SubPath path="structure">
             <BadStructure path="slow" />
             <MoveStateDown path="state-down" />
-            <BadColorDiv path="slow-higher-state" />
             <LiftContent path="lift-content" />
           </SubPath>
-          <SubPath path="react-api">
+          <SubPath path="memo">
+            <MemoBase path="base" />
             <Memo path="memo" />
-            <RenderMarkdown path="use-memo" />
+            <MemoWithIsEqual path="is-equal" />
+            <ObjectPropMemo path="object-prop" />
+          </SubPath>
+          <SubPath path="use-memo">
+            <UseMemoBase path="base" />
+            <UseMemo path="memo" />
+            <UseMemoObjects path="object-prop" />
           </SubPath>
         </Router>
       </div>

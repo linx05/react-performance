@@ -30,7 +30,10 @@ function hexToRGBA(h, alpha) {
   return `rgb(${+r},${+g},${+b},${+alpha})`;
 }
 
-export function ComplexComponent({ color, dimensions = 100 }) {
+export function ComplexComponent({
+  color,
+  config: { dimensions } = { dimensions: 100 },
+}) {
   const [rows, setRows] = useState(initialRowsColumns(dimensions));
   const [columns, setColumns] = useState(initialRowsColumns(dimensions));
   const data = generateData(dimensions);
@@ -102,3 +105,39 @@ export function ComplexComponent({ color, dimensions = 100 }) {
     </div>
   );
 }
+
+export const renderItems = (
+  item,
+  color,
+  { dimensions } = { dimensions: 100 }
+) => {
+  const rows = initialRowsColumns(dimensions);
+  const columns = initialRowsColumns(dimensions);
+  const data = generateData(dimensions);
+
+  console.log("%cRendering complex component", "color: red;");
+
+  const hexColor = color || "#000000";
+
+  return data.slice(0, rows).map((row, i) => (
+    <div key={i} style={{ display: "flex" }}>
+      {row.slice(0, columns).map((cell, i) => (
+        <div
+          key={i}
+          style={{
+            outline: `1px solid black`,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            width: 40,
+            height: 40,
+            color: cell > 50 ? "white" : "black",
+            backgroundColor: hexToRGBA(hexColor, cell / 100),
+          }}
+        >
+          {item}
+        </div>
+      ))}
+    </div>
+  ));
+};
